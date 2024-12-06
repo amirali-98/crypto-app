@@ -1,0 +1,70 @@
+.searchForm {
+  padding: 0 25px;
+  display: flex;
+  gap: 8px;
+  position: relative;
+}
+
+.searchForm input {
+  height: 40px;
+  width: 250px;
+  padding: 0 10px;
+  font-size: 18px;
+  background-color: transparent;
+  border: 1px solid #4e4e4e;
+  border-radius: 10px;
+  outline: none;
+  color: #fff;
+}
+
+.searchForm input::placeholder {
+  color: #4e4e4e;
+}
+
+.searchForm select {
+  background-color: transparent;
+  color: #4e4e4e;
+  border-radius: 10px;
+  width: 100px;
+  padding: 0 10px;
+  outline: none;
+  border: 1px solid #4e4e4e;
+}
+
+.searchForm option {
+  background-color: #00193b;
+  color: #fff;
+}
+
+.searchedContainer {
+  position: absolute;
+  /* border: 1px solid red; */
+  width: 300px;
+  top: 120%;
+  padding: 5px 0;
+  background-color: rgba(0, 19, 45, 0.314);
+  backdrop-filter: blur(5px);
+  box-shadow: 0px 10px 16px -9px rgba(0, 0, 0, 0.62);
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.searchedContainer ul {
+  list-style: none;
+}
+
+.searchedContainer li {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.searchedContainer li:hover {
+  background-color: rgba(78, 78, 78, 0.74);
+}
+
+.searchedContainer li:not(:last-child) {
+  border-bottom: 1px solid #4e4e4e;
+}
