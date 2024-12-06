@@ -1,0 +1,23 @@
+.header {
+  background-color: #00377e;
+  padding: 15px 25px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header span {
+  color: #6cacff;
+}
+
+.main {
+  margin: 32px 0;
+}
+
+.footer {
+  background-color: #00377e;
+  padding: 15px 25px;
+  border-radius: 15px;
+  text-align: center;
+}
