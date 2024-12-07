@@ -4,10 +4,9 @@ import styles from "./SearchForm.module.css";
 
 import SearchedList from "./SearchedList";
 
-function SearchForm() {
+function SearchForm({ supportCurrency, setSupportCurrency }) {
   const [search, setSearch] = useState("");
   const [supportCurrencies, setSupportCurrencies] = useState([]);
-  const [supportCurrency, setSupportCurrency] = useState("usd");
 
   useEffect(() => {
     fetch("https://api.coingecko.com/api/v3/simple/supported_vs_currencies", {
