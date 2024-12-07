@@ -5,9 +5,14 @@ import imgChartUp from "../assets/chart-up.svg";
 
 import { printCurrencyFormat, printPercentageFormat } from "../utils/helper";
 
-function CurrencyRow({ currency }) {
+function CurrencyRow({ currency, setSelectedCurrency, setModalOpen }) {
+  function rowClickHandler() {
+    setSelectedCurrency(currency);
+    setModalOpen(true);
+  }
+
   return (
-    <tr className={styles.currencyRow}>
+    <tr className={styles.currencyRow} onClick={rowClickHandler}>
       <td>
         <img src={currency.image} alt={currency.name} />
       </td>

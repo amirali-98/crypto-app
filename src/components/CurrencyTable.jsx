@@ -4,7 +4,7 @@ import CurrencyRow from "./CurrencyRow";
 
 import styles from "./CurrencyTable.module.css";
 
-function CurrencyTable({ supportCurrency }) {
+function CurrencyTable({ supportCurrency, setSelectedCurrency, setModalOpen }) {
   const [currencies, setCurrencies] = useState([]);
   useEffect(() => {
     fetch(
@@ -34,7 +34,12 @@ function CurrencyTable({ supportCurrency }) {
         </thead>
         <tbody>
           {currencies.map(cr => (
-            <CurrencyRow key={cr.id} currency={cr} />
+            <CurrencyRow
+              key={cr.id}
+              currency={cr}
+              setSelectedCurrency={setSelectedCurrency}
+              setModalOpen={setModalOpen}
+            />
           ))}
         </tbody>
       </table>
