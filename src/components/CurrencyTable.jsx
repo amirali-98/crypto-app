@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 
 import CurrencyRow from "./CurrencyRow";
+import Pagination from "./Pagination";
 
 import styles from "./CurrencyTable.module.css";
 
 function CurrencyTable({ supportCurrency, setSelectedCurrency, setModalOpen }) {
   const [currencies, setCurrencies] = useState([]);
+  const [page, setPage] = useState(1);
   useEffect(() => {
     fetch(
-      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${supportCurrency}&per_page=10&page=1`,
+      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${supportCurrency}&per_page=20&page=${page}`,
       {
         method: "GET",
         headers: {
@@ -18,7 +20,7 @@ function CurrencyTable({ supportCurrency, setSelectedCurrency, setModalOpen }) {
     )
       .then(res => res.json())
       .then(json => setCurrencies(json));
-  }, [supportCurrency]);
+  }, [supportCurrency, page]);
 
   return (
     <div className={styles.tableContainer}>
@@ -43,6 +45,7 @@ function CurrencyTable({ supportCurrency, setSelectedCurrency, setModalOpen }) {
           ))}
         </tbody>
       </table>
+      <Pagination page={page} setPage={setPage} />
     </div>
   );
 }
