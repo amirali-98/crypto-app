@@ -1,0 +1,32 @@
+.header {
+  background-color: #9ba2ff;
+  display: flex;
+  color: #222;
+  align-items: center;
+  justify-content: space-between;
+  gap: 96px;
+  padding: 10px 15px;
+  border-radius: 20px;
+}
+
+.header p span {
+  font-weight: 700;
+}
+
+.content {
+  margin: 48px 0;
+}
+
+.footer {
+  background-color: #9ba2ff;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+  color: #222;
+}
+
+.footer p a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+}
