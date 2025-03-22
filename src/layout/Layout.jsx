@@ -1,6 +1,6 @@
 import styles from "./Layout.module.css";
 
-export default function Layout() {
+export default function Layout({ children }) {
   return (
     <>
       <header className={styles.header}>
@@ -9,7 +9,7 @@ export default function Layout() {
           <span>Amirali</span> | React.js Tutorial
         </p>
       </header>
-      <main className={styles.content}></main>
+      <main className={styles.content}>{children}</main>
       <footer className={styles.footer}>
         <p>
           Develop and Design by Amirali Mansouri | Please Check my{" "}

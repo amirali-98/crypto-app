@@ -1,0 +1,44 @@
+.searchedList {
+  position: absolute;
+  background-color: #1b1b1e;
+  height: 200px;
+  width: 300px;
+  overflow-y: scroll;
+  top: 120%;
+  border-radius: 5px;
+  box-shadow: 0px 7px 21px -3px rgba(122, 120, 122, 1);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  overflow: hidden;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #505485;
+  border-radius: 10px;
+}
+
+.searchedList ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.searchedList ul li {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.searchedList ul li:hover {
+  background-color: #2b2b30;
+}
+
+.searchedList ul li img {
+  border-radius: 50%;
+}
