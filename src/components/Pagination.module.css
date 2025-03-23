@@ -1,0 +1,32 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.pagination button {
+  cursor: pointer;
+}
+
+.pagination p {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.pagination div {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.disabled {
+  cursor: not-allowed !important;
+  opacity: 0.5;
+}
+
+.current {
+  border: 1px solid #9ba2ff;
+}

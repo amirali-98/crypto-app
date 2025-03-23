@@ -7,23 +7,29 @@ import down from "../assets/chart-down.svg";
 import up from "../assets/chart-up.svg";
 
 import styles from "./CoinList.module.css";
+import Pagination from "./Pagination";
 
 export default function CoinList({ rate }) {
-  const [coins, setCoins] = useState([]);
-
+  const [coins, setCoins] = useState({
+    total: 0,
+    data: [],
+  });
+  const [page, setPage] = useState(1);
   useEffect(() => {
     api
-      .get(`/coins/markets?vs_currency=${rate}&per_page=20&page=1`)
+      .get(`/coins/markets?vs_currency=${rate}&per_page=20&page=${page}`)
       .then(res => {
-        console.log(res);
-        setCoins(res);
+        setCoins({
+          total: 100,
+          data: res,
+        });
       })
       .catch(err => console.log(err));
-  }, [rate]);
+  }, [rate, page]);
 
   return (
     <div className={styles.container}>
-      {coins.length ? (
+      {coins.data.length ? (
         <table className={styles.table}>
           <thead>
             <tr>
@@ -36,7 +42,7 @@ export default function CoinList({ rate }) {
             </tr>
           </thead>
           <tbody>
-            {coins.map(coin => (
+            {coins.data.map(coin => (
               <tr key={coin.id}>
                 <td>
                   <div className={styles.coinImage}>
@@ -70,6 +76,7 @@ export default function CoinList({ rate }) {
           <MoonLoader color="#9ba2ff" loading size={100} />
         </div>
       )}
+      <Pagination totalCoins={coins.total} page={page} setPage={setPage} />
     </div>
   );
 }
