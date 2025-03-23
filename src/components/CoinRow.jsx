@@ -3,9 +3,15 @@ import styles from "./CoinRow.module.css";
 import down from "../assets/chart-down.svg";
 import up from "../assets/chart-up.svg";
 
-export default function CoinRow({ coin }) {
+export default function CoinRow({ coin, setIsModalOpened, setSelectedCoinId }) {
+  const selectCoinHandler = e => {
+    e.stopPropagation();
+    setIsModalOpened(true);
+    setSelectedCoinId(coin.id);
+  };
+
   return (
-    <tr className={styles.coinRow}>
+    <tr className={styles.coinRow} onClick={selectCoinHandler}>
       <td>
         <div className={styles.coinImage}>
           <img src={coin.image} alt={coin.name} />

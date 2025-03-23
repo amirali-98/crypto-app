@@ -18,18 +18,6 @@
   border-bottom: 1px solid #242935;
 }
 
-.coinImage {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.coinImage img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
 .loaderContainer {
   height: 80vh;
   display: flex;

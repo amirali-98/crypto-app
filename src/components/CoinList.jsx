@@ -7,7 +7,11 @@ import styles from "./CoinList.module.css";
 import Pagination from "./Pagination";
 import CoinRow from "./CoinRow";
 
-export default function CoinList({ rate }) {
+export default function CoinList({
+  rate,
+  setIsModalOpened,
+  setSelectedCoinId,
+}) {
   const [coins, setCoins] = useState({
     total: 0,
     data: [],
@@ -41,7 +45,12 @@ export default function CoinList({ rate }) {
           </thead>
           <tbody>
             {coins.data.map(coin => (
-              <CoinRow key={coin.id} coin={coin} />
+              <CoinRow
+                key={coin.id}
+                coin={coin}
+                setIsModalOpened={setIsModalOpened}
+                setSelectedCoinId={setSelectedCoinId}
+              />
             ))}
           </tbody>
         </table>
