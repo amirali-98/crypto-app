@@ -5,9 +5,8 @@ import api from "../config/api";
 import styles from "./SearchForm.module.css";
 import SearchedCoindList from "./SearchedCoindList";
 
-export default function SearchForm() {
+export default function SearchForm({ rate, setRate }) {
   const [rates, setRates] = useState([]);
-  const [rate, setRate] = useState("jpy");
   const [search, setSearch] = useState("");
   const [searchedCoins, setSearchedCoins] = useState([]);
 
@@ -16,15 +15,8 @@ export default function SearchForm() {
   };
 
   useEffect(() => {
-    api.get("/exchange_rates").then(res => {
-      setRates(
-        Object.entries(res.rates).map(([n, { name, unit }], index) => ({
-          index,
-          rate: n,
-          name,
-          unit,
-        }))
-      );
+    api.get("/simple/supported_vs_currencies").then(res => {
+      setRates(res);
     });
   }, []);
 
@@ -59,8 +51,8 @@ export default function SearchForm() {
         />
         <select value={rate} onChange={rateHanlder}>
           {rates.map(rate => (
-            <option key={rate.index} value={rate.rate}>
-              {rate.name} ({rate.unit})
+            <option key={rate} value={rate}>
+              {rate}
             </option>
           ))}
         </select>

@@ -1,0 +1,37 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+}
+
+.table tbody tr td {
+  padding: 10px 0;
+}
+
+.table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #242935;
+}
+
+.coinImage {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.coinImage img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.loaderContainer {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
