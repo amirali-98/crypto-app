@@ -1,0 +1,20 @@
+.coinRow {
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.coinRow:hover {
+  background-color: #292e3b;
+}
+
+.coinImage {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.coinImage img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

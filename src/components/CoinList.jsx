@@ -3,11 +3,9 @@ import { MoonLoader } from "react-spinners";
 
 import api from "../config/api";
 
-import down from "../assets/chart-down.svg";
-import up from "../assets/chart-up.svg";
-
 import styles from "./CoinList.module.css";
 import Pagination from "./Pagination";
+import CoinRow from "./CoinRow";
 
 export default function CoinList({ rate }) {
   const [coins, setCoins] = useState({
@@ -43,31 +41,7 @@ export default function CoinList({ rate }) {
           </thead>
           <tbody>
             {coins.data.map(coin => (
-              <tr key={coin.id}>
-                <td>
-                  <div className={styles.coinImage}>
-                    <img src={coin.image} alt={coin.name} />
-                    <p>{coin.name}</p>
-                  </div>
-                </td>
-                <td>{coin.name}</td>
-                <td>${coin.current_price.toLocaleString()}</td>
-                <td
-                  style={{
-                    color:
-                      coin.price_change_percentage_24h >= 0 ? "green" : "red",
-                  }}
-                >
-                  {coin.price_change_percentage_24h.toFixed(2)}%
-                </td>
-                <td>${coin.total_volume.toLocaleString()}</td>
-                <td>
-                  <img
-                    src={coin.price_change_percentage_24h >= 0 ? up : down}
-                    alt="chart"
-                  />
-                </td>
-              </tr>
+              <CoinRow key={coin.id} coin={coin} />
             ))}
           </tbody>
         </table>

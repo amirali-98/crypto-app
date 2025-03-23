@@ -18,12 +18,12 @@ export default function Pagination({ totalCoins, page, setPage }) {
     <div>
       <div className={styles.pagination}>
         <button
-          className={page === 1 ? styles.disabled : ""}
+          className={page === 1 ? styles.disabled : undefined}
           onClick={prevPageHandler}
         >
           Prev
         </button>
-        <p className={page === 1 && styles.current}>1</p>
+        <p className={page === 1 ? styles.current : undefined}>1</p>
         {page > 1 && page < totalCoins / PER_PAGE ? (
           <div>
             <span>...</span>
@@ -33,11 +33,17 @@ export default function Pagination({ totalCoins, page, setPage }) {
         ) : (
           <p>...</p>
         )}
-        <p className={page === totalCoins / PER_PAGE && styles.current}>
+        <p
+          className={
+            page === totalCoins / PER_PAGE ? styles.current : undefined
+          }
+        >
           {totalCoins / PER_PAGE}
         </p>
         <button
-          className={page === totalCoins / PER_PAGE ? styles.disabled : ""}
+          className={
+            page === totalCoins / PER_PAGE ? styles.disabled : undefined
+          }
           onClick={nextPageHandler}
         >
           Next
