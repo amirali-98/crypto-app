@@ -18,3 +18,9 @@
   max-width: 1200px;
   margin: 20px auto;
 }
+
+@media screen and (max-width: 1200px) {
+  .app {
+    padding: 0 15px;
+  }
+}

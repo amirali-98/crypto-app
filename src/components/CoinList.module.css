@@ -1,7 +1,13 @@
+.container {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  margin-bottom: 40px;
+}
+
 .table {
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 20px;
 }
 
 .table th {
@@ -23,4 +29,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .table {
+    min-width: 1200px;
+    /* overflow-x: auto; */
+  }
 }

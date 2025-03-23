@@ -44,3 +44,11 @@
   padding: 10px;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 746px) {
+  .modal {
+    width: 90%;
+    height: 400px;
+    padding: 20px 5px;
+  }
+}

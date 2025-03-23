@@ -30,36 +30,38 @@ export default function CoinList({
   }, [rate, page]);
 
   return (
-    <div className={styles.container}>
-      {coins.data.length ? (
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Coin</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>24H</th>
-              <th>Total Volume</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {coins.data.map(coin => (
-              <CoinRow
-                key={coin.id}
-                coin={coin}
-                setIsModalOpened={setIsModalOpened}
-                setSelectedCoinId={setSelectedCoinId}
-              />
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <div className={styles.loaderContainer}>
-          <MoonLoader color="#9ba2ff" loading size={100} />
-        </div>
-      )}
+    <>
+      <div className={styles.container}>
+        {coins.data.length ? (
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>Coin</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>24H</th>
+                <th>Total Volume</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {coins.data.map(coin => (
+                <CoinRow
+                  key={coin.id}
+                  coin={coin}
+                  setIsModalOpened={setIsModalOpened}
+                  setSelectedCoinId={setSelectedCoinId}
+                />
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <div className={styles.loaderContainer}>
+            <MoonLoader color="#9ba2ff" loading size={100} />
+          </div>
+        )}
+      </div>
       <Pagination totalCoins={coins.total} page={page} setPage={setPage} />
-    </div>
+    </>
   );
 }
